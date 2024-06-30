@@ -27,7 +27,7 @@ const actualizarListaTareas = () => {
           <td>${index + 1}</td>
           <td>${tarea.nombre}</td>
           <td><input type="checkbox" ${tarea.realizada ? 'checked' : ''}></td>
-          <td><button class="btn-del">Eliminar</button></td>
+          <td><button class="btn btn-del">Eliminar</button></td>
         </tr>`;
     });
     listaTareas.innerHTML = nuevaLista;
