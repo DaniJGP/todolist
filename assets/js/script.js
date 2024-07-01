@@ -23,7 +23,7 @@ const actualizarListaTareas = () => {
     let nuevaLista = '';
     tareas.forEach((tarea, index) => {
         nuevaLista += `
-        <tr id="${tarea.id}">
+        <tr id="${tarea.id}"${tarea.realizada ? 'class="hecha"' : ''}>
           <td>${index + 1}</td>
           <td>${tarea.nombre}</td>
           <td><input type="checkbox" ${tarea.realizada ? 'checked' : ''}></td>
@@ -51,8 +51,10 @@ const agregarListeners = () => {
             const index = tareas.findIndex((tarea) => tarea.id == tr.id);
             if (e.currentTarget.checked) {
                 tareas[index].realizada = true;
+                tr.classList.add('hecha');
             } else {
                 tareas[index].realizada = false;
+                tr.classList.remove('hecha');
             }
             actualizarContadores();
         });
